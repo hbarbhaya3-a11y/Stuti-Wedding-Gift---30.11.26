@@ -116,7 +116,7 @@ def pages(t):
     P.append(f'''<section class="page pb">
   <div class="lab" style="left:8cqw;top:8cqw">The story</div>
   <div class="cols edit" contenteditable style="left:8cqw;right:8cqw;top:14cqw">
-    <p>[How you met.] It began on an ordinary day in [city], when [Partner] walked in and everything quietly changed. Write the real story here — the first conversation, the first impression, the moment you knew.</p>
+    <p>[How you met.] It began on an ordinary day in [city], when Stuti walked in and everything quietly changed. Write the real story here — the first conversation, the first impression, the moment you knew.</p>
     <p>[The first date.] It involved [place], [food] and a conversation that lasted far longer than planned.</p>
     <p>[The proposal.] On [date], at [place], the question was asked — and the answer was a very quick “yes”.</p>
     <p>[Today.] And now we begin our greatest chapter yet — together, forever.</p>
@@ -146,20 +146,20 @@ def pages(t):
     P.append(f'''<section class="page pa">
   <div class="search" style="left:7cqw;right:7cqw;top:8cqw">
     <div class="logo">Lovely</div>
-    <div class="box">🔍 <span class="edit" contenteditable>best fiancé in the world</span></div>
+    <div class="box">🔍 <span class="edit" contenteditable>best fiancée in the world</span></div>
     <div class="tabs"><b>All</b><span>Images</span><span>Videos</span><span>News</span></div>
   </div>
   <div class="grid" style="left:7cqw;right:7cqw;top:42cqw;height:74cqw">
     {ph("search-1.jpg","search-1",' style="grid-row:span 2"')}{ph("search-2.jpg","search-2")}{ph("search-3.jpg","search-3")}{ph("search-4.jpg","search-4")}{ph("search-5.jpg","search-5")}
   </div>
-  <p class="txt edit" contenteditable style="left:7cqw;right:7cqw;top:121cqw">About 1 result (0.00 seconds) — <b data-fill="partner">[Partner]</b>. There is only one, and I'm marrying him.</p>
+  <p class="txt edit" contenteditable style="left:7cqw;right:7cqw;top:121cqw">About 1 result (0.00 seconds) — <b data-fill="partner">[Partner]</b>. There is only one, and I'm marrying her.</p>
 </section>''')
     P.append(f'''<section class="page pb">
   {fr("who-main.jpg","MAIN PHOTO","left:7cqw;top:7cqw;width:52cqw;height:70cqw;--r:0deg")}
   {fr("who-2.jpg","who-2","right:7cqw;top:7cqw;width:28cqw;height:33cqw;--r:3deg")}
   {fr("who-3.jpg","who-3","right:7cqw;top:44cqw;width:28cqw;height:33cqw;--r:-3deg")}
-  <h2 class="big edit" contenteditable style="right:7cqw;bottom:8cqw;text-align:right">Who's<br>that<br>guy?</h2>
-  <p class="txt edit" contenteditable style="left:7cqw;top:88cqw;width:36cqw">[Three words that describe him.] Kind. Funny. Mine. Write a few lines about what makes him, him.</p>
+  <h2 class="big edit" contenteditable style="right:7cqw;bottom:8cqw;text-align:right">Who's<br>that<br>girl?</h2>
+  <p class="txt edit" contenteditable style="left:7cqw;top:88cqw;width:36cqw">[Three words that describe her.] Kind. Funny. Mine. Write a few lines about what makes her, her.</p>
   {st(t,5,"left:50cqw;top:80cqw")}
 </section>''')
     P.append(f'''<section class="page alt">
@@ -167,7 +167,7 @@ def pages(t):
   <h2 class="edit" contenteditable style="left:7cqw;top:15cqw;width:86cqw">bas chaar kadam…</h2>
   {fr("lyric.jpg","PHOTO","left:12cqw;right:12cqw;top:42cqw;height:70cqw;--r:-2deg")}
   {st(t,0,"right:8cqw;top:40cqw")}
-  <p class="txt edit" contenteditable style="left:10cqw;right:10cqw;top:122cqw;text-align:center">[A favourite song lyric or a line just for him.]</p>
+  <p class="txt edit" contenteditable style="left:10cqw;right:10cqw;top:122cqw;text-align:center">[A favourite song lyric or a line just for her.]</p>
 </section>''')
     P.append(f'''<section class="page pa">
   <div class="filmstrip" style="left:7cqw;top:7cqw;width:34cqw;bottom:7cqw">
@@ -196,7 +196,7 @@ def pages(t):
 </section>''')
     P.append(f'''<section class="page letter">
   <h2 class="edit" contenteditable style="left:16cqw;top:7cqw">A letter to you</h2>
-  <div class="body edit" contenteditable>My love,<br><br>[Write your letter here. What you felt the first time you saw him, what you love most, what you promise for the years ahead.]<br><br>Thank you for choosing me, every single day.<br><br>Forever yours,<br><span data-fill="you">[Your Name]</span> ♡</div>
+  <div class="body edit" contenteditable>My love,<br><br>[Write your letter here. What you felt the first time you saw her, what you love most, what you promise for the years ahead.]<br><br>Thank you for choosing me, every single day.<br><br>Forever yours,<br><span data-fill="you">[Your Name]</span> ♡</div>
 </section>''')
     strips = "".join(
         f'<div class="filmstrip booth" style="left:{x}cqw;top:{y}cqw;width:26cqw;bottom:{b}cqw;transform:rotate({r}deg)">' +
