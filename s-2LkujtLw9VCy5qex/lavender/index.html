@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forever — Lavender Dream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Great+Vibes&family=Caveat:wght@400;700&family=Bebas+Neue&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=Inter:wght@300;400;600&family=Pacifico&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<style>:root{--bg1:#efe6fb;--bg2:#e3d4f7;--ink:#4b2a7a;--ink2:#4b2a7a;--accent:#7b4fc9;--accent2:#c9b1f0;--paper:#ffffff;--display:'Great Vibes',cursive;--script:'Great Vibes',cursive;--body:'Playfair Display',serif;--label:'Bebas Neue',sans-serif;--mastfont:'Bodoni Moda',serif;--pat1:linear-gradient(90deg,rgba(123,79,201,.08) 50%,transparent 50%),linear-gradient(rgba(123,79,201,.08) 50%,transparent 50%);--patsize:8cqw 8cqw;--patpos:0 0;--pat2:radial-gradient(rgba(123,79,201,.18) 15%,transparent 16%);--patsize2:7cqw 7cqw;--filt:none;--film:#7b4fc9}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at 50% 30%,#3b2a2f,#140d10 75%);overflow:hidden;display:flex;flex-direction:column}
+.home{position:fixed;top:10px;left:12px;z-index:100;color:#f3dfe4;font:600 13px Inter;text-decoration:none;opacity:.75;background:rgba(255,255,255,.08);padding:6px 12px;border-radius:999px}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;perspective:2200px;padding:44px 2vw 0}
+.book{display:flex;filter:drop-shadow(0 25px 40px rgba(0,0,0,.55))}
+.page{--w:min(44vw,calc((100vh - 150px)/1.414));width:var(--w);aspect-ratio:1/1.414;position:relative;overflow:hidden;container-type:inline-size;display:none;color:var(--ink)}
+.page.show{display:block;animation:flipIn .55s ease}
+.page.left::after,.page.right::after{content:"";position:absolute;top:0;bottom:0;width:8%;pointer-events:none;z-index:50}
+.page.left::after{right:0;background:linear-gradient(to left,rgba(0,0,0,.22),transparent)}
+.page.right::after{left:0;background:linear-gradient(to right,rgba(0,0,0,.22),transparent)}
+@keyframes flipIn{from{opacity:0;transform:rotateY(-25deg) scale(.97)}to{opacity:1;transform:none}}
+.single .page{--w:min(92vw,calc((100vh - 150px)/1.414))}
+.single .page::after{display:none}
+nav{display:flex;align-items:center;justify-content:center;gap:16px;padding:14px;color:#f3dfe4;font-size:14px;letter-spacing:.08em}
+nav button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;width:44px;height:44px;font-size:20px;cursor:pointer}
+nav button:disabled{opacity:.3;cursor:default}
+.edit{outline:none}
+
+/* page backgrounds */
+.pa{background-color:var(--bg1);background-image:var(--pat1);background-size:var(--patsize);background-position:var(--patpos)}
+.pb{background-color:var(--bg2);background-image:var(--pat2);background-size:var(--patsize2);color:var(--ink2)}
+.alt{background:var(--film);color:#fff}
+.alt h2,.alt .lab,.alt .txt{color:#fff}
+
+/* text */
+.page h2{position:absolute;font:400 12cqw/1.05 var(--display);color:var(--accent);z-index:4}
+.page h2.big{font-size:17cqw;line-height:.85;color:inherit}
+.lab{position:absolute;font:700 2.8cqw var(--label);letter-spacing:.35em;text-transform:uppercase;color:var(--accent);z-index:4}
+.lab.big2{font-size:8cqw;letter-spacing:.06em;line-height:1}
+.txt{position:absolute;font:400 3cqw/1.5 var(--body);z-index:4}
+.cols{position:absolute;columns:2;column-gap:4cqw;font:400 3.1cqw/1.5 var(--body);text-align:justify}
+.cols p+p{margin-top:1.6cqw}
+.cols p:first-child::first-letter{font:700 8cqw/.8 var(--display);float:left;margin:.6cqw 1cqw 0 0;color:var(--accent)}
+.quote{position:absolute;border-top:.3cqw solid currentColor;border-bottom:.3cqw solid currentColor;padding:2.4cqw 0;font:italic 700 4.6cqw/1.2 var(--body);text-align:center}
+.note{position:absolute;background:#fff8c9;padding:3cqw;font:400 3.8cqw/1.25 Caveat,cursive;color:#5a3a2a;box-shadow:0 .8cqw 1.5cqw rgba(0,0,0,.15);transform:rotate(-3deg);z-index:4}
+.sticker{position:absolute;font-size:7.5cqw;line-height:1;z-index:8;filter:drop-shadow(0 .4cqw .5cqw rgba(0,0,0,.2))}
+
+/* placeholders */
+.ph{position:absolute;inset:0;background:repeating-linear-gradient(45deg,#e9e1dc,#e9e1dc 10px,#f3ede9 10px,#f3ede9 20px);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:#8b7d77;font:600 2.4cqw/1.3 Inter,sans-serif;padding:2cqw;overflow:hidden;filter:var(--filt)}
+.ph.loaded{color:transparent}.ph.loaded span{display:none}
+.ph span small{display:block;font-weight:400;opacity:.8;margin-top:.6cqw}
+
+/* frames */
+.fr{position:absolute;transform:rotate(var(--r,0deg));z-index:3}
+.fr .ph{position:absolute}
+.fr em{position:absolute;left:0;right:0;text-align:center;font:400 3.6cqw var(--script);color:#333;bottom:1.4cqw;z-index:2}
+.f-polaroid .fr{background:var(--paper);padding:2.2cqw 2.2cqw 7.5cqw;box-shadow:0 1cqw 2.5cqw rgba(0,0,0,.25)}
+.f-polaroid .fr .ph{inset:2.2cqw 2.2cqw 7.5cqw}
+.f-polaroid .fr::before{content:"";position:absolute;top:-2cqw;left:50%;width:16cqw;height:4.5cqw;margin-left:-8cqw;background:rgba(255,236,190,.8);transform:rotate(-4deg);z-index:3}
+.f-torn .fr{background:var(--paper);box-shadow:0 1cqw 2cqw rgba(60,30,0,.3);clip-path:polygon(0 2%,6% 0,14% 2%,22% 0,31% 1.5%,40% 0,50% 2%,60% 0,70% 1.5%,80% 0,90% 2%,100% 0,99% 20%,100% 40%,98.5% 60%,100% 80%,99% 100%,90% 98%,80% 100%,70% 98.5%,60% 100%,50% 98%,40% 100%,30% 98.5%,20% 100%,10% 98%,0 100%,1.5% 80%,0 60%,1% 40%,0 20%)}
+.f-torn .fr .ph{inset:2.6cqw 2.6cqw 7.5cqw}
+.f-torn .fr::before{content:"";position:absolute;top:0;left:50%;width:16cqw;height:4.5cqw;margin-left:-8cqw;background:rgba(201,165,111,.7);z-index:3}
+.f-stamp .fr{background:var(--paper);outline:1.6cqw dotted var(--paper);outline-offset:-.4cqw;box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.35)}
+.f-stamp .fr .ph{inset:2.6cqw}
+.f-stamp .fr em{display:none}
+.f-plain .fr{background:var(--paper);padding:0;box-shadow:0 0 0 .3cqw var(--ink)}
+.f-plain .fr .ph{inset:0}
+.f-plain .fr em{bottom:-5cqw;color:inherit;font-style:italic}
+.f-thin .fr{box-shadow:0 0 0 .25cqw var(--accent2);background:var(--paper)}
+.f-thin .fr .ph{inset:1.6cqw}
+.f-thin .fr em{bottom:-5.5cqw;color:var(--accent)}
+.f-rounded .fr{background:var(--paper);border-radius:4cqw;box-shadow:0 1cqw 3cqw rgba(80,40,140,.25)}
+.f-rounded .fr .ph{inset:2cqw 2cqw 7cqw;border-radius:2.5cqw}
+.f-rounded .fr::before{content:"🎀";position:absolute;top:-4cqw;left:50%;margin-left:-3.5cqw;font-size:7cqw;z-index:3}
+.f-rounded .fr em{color:var(--accent)}
+.f-lace .fr{background:var(--paper);outline:1.6cqw dotted var(--paper);outline-offset:.2cqw;box-shadow:0 0 0 2.4cqw var(--accent2),0 1.5cqw 3cqw rgba(0,0,0,.2)}
+.f-lace .fr .ph{inset:1.8cqw 1.8cqw 7cqw}
+.f-lace .fr em{color:var(--accent)}
+.f-cutout .fr{background:var(--paper);border-radius:1.5cqw;box-shadow:0 1.2cqw 2.5cqw rgba(0,0,0,.45)}
+.f-cutout .fr .ph{inset:1.4cqw 1.4cqw 6.5cqw;border-radius:1cqw}
+.f-cutout .fr em{font-family:Caveat,cursive;font-size:4cqw}
+.f-pearl .fr{background:linear-gradient(135deg,#fff,#ffe0f3);border-radius:5cqw;box-shadow:0 0 0 1.4cqw #fff,0 0 0 2.2cqw var(--accent2),0 1.5cqw 3cqw rgba(255,79,174,.35)}
+.f-pearl .fr .ph{inset:2cqw 2cqw 7cqw;border-radius:3.5cqw}
+.f-pearl .fr em{color:var(--accent);font-family:Pacifico,cursive;font-size:3.2cqw}
+
+/* magazine cover */
+.cover{background:var(--accent2)}
+.cover .mast{position:absolute;top:3cqw;left:0;right:0;text-align:center;font:900 19cqw/.95 var(--mastfont);letter-spacing:-.2cqw;white-space:nowrap;color:#fff;text-shadow:0 .5cqw 2cqw rgba(0,0,0,.35);z-index:3}
+.cover .issue{position:absolute;top:27cqw;right:5cqw;font:700 3cqw Inter;letter-spacing:.4em;color:#fff;z-index:3;text-shadow:0 .3cqw 1cqw rgba(0,0,0,.4)}
+.cover .lines{position:absolute;left:5cqw;top:44cqw;width:38cqw;color:#fff;z-index:3;text-shadow:0 .3cqw 1cqw rgba(0,0,0,.45)}
+.cover .lines b{display:block;font:400 6.2cqw/1 "Bebas Neue",sans-serif;letter-spacing:.05em}
+.cover .lines p{font:400 3cqw/1.3 "Playfair Display",serif;margin:.5cqw 0 4cqw}
+.cover .names{position:absolute;bottom:13cqw;left:0;right:0;padding:0 6cqw;text-align:center;color:#fff;font:400 11cqw/1.05 var(--script);z-index:3;text-shadow:0 .5cqw 2cqw rgba(0,0,0,.5)}
+.cover .ed{position:absolute;right:5cqw;top:62cqw;text-align:right;color:#fff;z-index:3;text-shadow:0 .3cqw 1cqw rgba(0,0,0,.45)}
+.cover .ed b{font:900 14cqw/.9 "Bodoni Moda",serif;display:block}
+.cover .ed span{font:700 2.8cqw Inter;letter-spacing:.3em}
+.cover .bottom{position:absolute;bottom:5cqw;left:5cqw;font:600 2.6cqw Inter;letter-spacing:.25em;color:#fff;z-index:3}
+.barcode{position:absolute;bottom:4cqw;right:5cqw;width:16cqw;height:8cqw;background:#fff;padding:1cqw;z-index:3}
+.barcode i{display:block;height:100%;background:repeating-linear-gradient(90deg,#111 0 .4cqw,transparent .4cqw .7cqw,#111 .7cqw .9cqw,transparent .9cqw 1.6cqw,#111 1.6cqw 2.3cqw,transparent 2.3cqw 2.6cqw)}
+
+/* newspaper cover */
+.ntop{position:absolute;left:6cqw;right:6cqw;top:6cqw;display:flex;justify-content:space-between;font:400 2.2cqw var(--body);text-transform:uppercase;letter-spacing:.1em;border-bottom:.3cqw solid;padding-bottom:1cqw}
+.flag{position:absolute;left:0;right:0;top:11cqw;text-align:center;font:400 10.5cqw/1.1 var(--mastfont)}
+.nrule{position:absolute;left:6cqw;right:6cqw;top:25cqw;border-top:.3cqw solid;border-bottom:.15cqw solid;height:1.2cqw}
+.newscover h1{position:absolute;left:6cqw;right:6cqw;top:30cqw;text-align:center;font:900 9.5cqw/.95 "Playfair Display",serif}
+.newscover h3{position:absolute;left:0;right:0;top:50cqw;text-align:center;font:italic 400 4.4cqw var(--body)}
+.ncap{position:absolute;left:0;right:0;top:124cqw;text-align:center;font:italic 2.6cqw var(--body)}
+
+/* player */
+.player{position:absolute;background:var(--accent);color:#fff;border-radius:3cqw;padding:3.5cqw;box-shadow:0 1cqw 3cqw rgba(0,0,0,.3);z-index:4}
+.player .ph{border-radius:2cqw}
+.player .t{font:700 4cqw Inter;margin-top:2.5cqw}
+.player .a{font:400 2.8cqw Inter;opacity:.85}
+.player .bar,.back .bar{height:.8cqw;background:rgba(255,255,255,.35);border-radius:1cqw;margin:2.5cqw 0 1cqw;position:relative}
+.player .bar::before,.back .bar::before{content:"";position:absolute;inset:0 45% 0 0;background:#fff;border-radius:1cqw}
+.player .times{display:flex;justify-content:space-between;font-size:2.2cqw;opacity:.85}
+.player .ctrl,.back .ctrl{display:flex;justify-content:center;gap:6cqw;font-size:5cqw;margin-top:1.5cqw}
+.tracks{position:absolute;font:400 3.6cqw/1.6 var(--script);z-index:4}
+.tracks li{list-style:none}
+.tracks li::before{content:"♥ ";color:var(--accent)}
+
+/* search */
+.search{position:absolute;z-index:4}
+.search .logo{font:700 9cqw "Playfair Display",serif;text-align:center;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.search .box{background:#fff;border:.3cqw solid #ddd;border-radius:10cqw;padding:2.4cqw 4cqw;font:400 3.2cqw Inter;color:#333;margin-top:2cqw;box-shadow:0 .5cqw 1.5cqw rgba(0,0,0,.08)}
+.search .tabs{display:flex;gap:4cqw;font:400 2.4cqw Inter;margin:2.5cqw 0 0 3cqw;opacity:.75}
+.search .tabs b{color:var(--accent);border-bottom:.4cqw solid var(--accent);padding-bottom:.6cqw}
+.grid{position:absolute;display:grid;gap:1.6cqw;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;z-index:3}
+.grid .ph{position:relative;inset:auto}
+
+/* film */
+.filmstrip{position:absolute;background:#111;padding:2.5cqw 4.5cqw;display:flex;flex-direction:column;gap:2cqw;z-index:3}
+.filmstrip::before,.filmstrip::after{content:"";position:absolute;top:0;bottom:0;width:2.6cqw;background:repeating-linear-gradient(to bottom,transparent 0 1.6cqw,#f5f5f5 1.6cqw 3.2cqw,transparent 3.2cqw 4.4cqw)}
+.filmstrip::before{left:1cqw}.filmstrip::after{right:1cqw}
+.filmstrip .ph{position:relative;inset:auto;flex:1}
+.filmstrip.booth{background:var(--paper);padding:2.2cqw;box-shadow:0 1cqw 2cqw rgba(0,0,0,.35)}
+.filmstrip.booth::before,.filmstrip.booth::after{display:none}
+.heart{position:absolute;aspect-ratio:1;background:var(--accent);z-index:3;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.3 2.4 4 6.4 4c2.3 0 3.9 1.3 5.6 3.3C13.7 5.3 15.3 4 17.6 4c4 0 6.1 4.3 4.4 7.7C19.5 16.4 12 21 12 21z"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.3 2.4 4 6.4 4c2.3 0 3.9 1.3 5.6 3.3C13.7 5.3 15.3 4 17.6 4c4 0 6.1 4.3 4.4 7.7C19.5 16.4 12 21 12 21z"/></svg>') center/contain no-repeat}
+
+/* timeline */
+.timeline{position:absolute;left:12cqw;right:8cqw;top:46cqw;border-left:.3cqw solid var(--accent2);padding-left:6cqw;z-index:4}
+.timeline div{position:relative;margin-bottom:5.5cqw}
+.timeline div::before{content:"";position:absolute;left:-7.7cqw;top:.8cqw;width:3cqw;height:3cqw;border-radius:50%;background:var(--bg2);border:.4cqw solid var(--accent)}
+.timeline b{font:700 2.4cqw Inter;letter-spacing:.3em;color:var(--accent);display:block}
+.timeline span{font:400 4.6cqw var(--body)}
+.timeline small{display:block;font:400 2.8cqw/1.4 var(--body);opacity:.8;margin-top:.5cqw}
+
+/* arch */
+.arch{position:absolute;border-radius:50cqw 50cqw 0 0;overflow:hidden;box-shadow:0 0 0 1.4cqw var(--paper),0 0 0 1.7cqw var(--accent2);z-index:3}
+
+/* letter */
+.letter{background:var(--paper);background-image:repeating-linear-gradient(transparent 0 6.4cqw,rgba(0,0,0,.08) 6.4cqw 6.6cqw);color:#2b2b3a}
+.letter::before{content:"";position:absolute;left:12cqw;top:0;bottom:0;width:.3cqw;background:var(--accent2)}
+.letter h2{font-family:var(--script);font-size:10cqw}
+.letter .body{position:absolute;left:16cqw;right:7cqw;top:20cqw;font:400 4.4cqw/6.6cqw Caveat,cursive}
+
+/* back */
+.back{background:#111;color:#fff}
+.back .shade{position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.85));z-index:2}
+.back .card{position:absolute;left:8cqw;right:8cqw;bottom:8cqw;z-index:3;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:.2cqw solid rgba(255,255,255,.25);border-radius:4cqw;padding:5cqw}
+.back h2{position:static;color:#fff;font:400 11cqw/1 var(--script);text-align:center}
+.back .t{font:700 4cqw Inter;text-align:center;margin-top:2cqw}
+.back .a{font:400 2.8cqw Inter;text-align:center;opacity:.8}
+.pageno{position:absolute;bottom:2.5cqw;font:600 2cqw Inter;letter-spacing:.2em;opacity:.55;z-index:20}
+.left .pageno,.single .pageno{left:4cqw}.right .pageno{right:4cqw}
+
+/* theme tweaks */
+.t-newspaper .alt{background:var(--bg2);color:var(--ink)}
+.t-newspaper .alt h2,.t-newspaper .alt .lab,.t-newspaper .alt .txt{color:var(--ink)}
+.t-newspaper .page h2{text-transform:uppercase;font-weight:900;font-size:9cqw}
+.t-newspaper .player{border-radius:0}
+.t-editorial .page h2{font-weight:400;font-style:italic}
+.t-editorial .lab{color:var(--accent)}
+.t-travel .page h2{font-size:12cqw;color:var(--accent2);letter-spacing:.02em}
+.t-travel .pb h2{color:var(--accent)}
+.t-y2k .page h2{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-y2k .lab{font-size:2.4cqw;letter-spacing:.15em}
+.t-y2k .lab.big2{font-size:6cqw}
+.t-romance .pb h2{color:var(--accent)}
+.t-minimal .lab{font-weight:600;font-size:2.4cqw;letter-spacing:.45em}
+.t-sunflower .page h2{color:var(--accent);text-shadow:.4cqw .4cqw 0 #fff}
+.page.alt h2,.page.alt .lab,.page.alt .txt{color:#fff;-webkit-text-fill-color:#fff;background:none;text-shadow:none}
+.t-newspaper .page.alt h2,.t-newspaper .page.alt .lab,.t-newspaper .page.alt .txt{color:var(--ink);-webkit-text-fill-color:var(--ink)}
+.t-newspaper .page.alt h2{top:19cqw!important}
+.back h2{-webkit-text-fill-color:#fff;background:none}
+.t-y2k .cols,.t-travel .cols{font-size:2.8cqw}
+</style></head>
+<body class="f-rounded t-lavender">
+<a class="home" href="../">← all styles</a>
+<div class="stage"><div class="book" id="book">
+<section class="page cover">
+  <div class="ph" data-src="../photos/cover.jpg"><span>COVER PHOTO<small>photos/cover.jpg</small></span></div>
+  <div class="mast edit" contenteditable>FOREVER</div>
+  <div class="issue">THE WEDDING ISSUE</div>
+  <div class="lines">
+    <b class="edit" contenteditable>Two Hearts,</b><p class="edit" contenteditable>one beautiful story</p>
+    <b class="edit" contenteditable>Exclusive:</b><p class="edit" contenteditable>how it all began</p>
+    <b class="edit" contenteditable>Our Playlist</b><p class="edit" contenteditable>songs that are “us”</p>
+  </div>
+  <div class="ed"><b data-fill="day">00</b><span data-fill="monthYear">MONTH 2027</span></div>
+  <div class="names" data-fill="couple">Name &amp; Name</div>
+  <div class="bottom">A SPECIAL EDITION · FOR MY FOREVER</div>
+  <div class="barcode"><i></i></div>
+</section>
+<section class="page pa">
+  <div class="lab" style="left:8cqw;top:8cqw">Chapter one</div>
+  <h2 class="edit" contenteditable style="left:8cqw;right:8cqw;top:13cqw">How it all began</h2>
+  <div class="fr" style="left:10cqw;right:10cqw;top:40cqw;height:78cqw;--r:-2deg"><div class="ph" data-src="../photos/story-1.jpg"><span>PHOTO — your first photo together<small>photos/story-1.jpg</small></span></div><em class="edit" contenteditable>where it started</em></div>
+  <div class="sticker" style="right:7cqw;top:34cqw">🦋</div>
+  <p class="txt edit" contenteditable style="left:10cqw;right:10cqw;top:126cqw;text-align:center">[Place · Year]</p>
+</section>
+<section class="page pb">
+  <div class="lab" style="left:8cqw;top:8cqw">The story</div>
+  <div class="cols edit" contenteditable style="left:8cqw;right:8cqw;top:14cqw">
+    <p>[How you met.] It began on an ordinary day in [city], when [Partner] walked in and everything quietly changed. Write the real story here — the first conversation, the first impression, the moment you knew.</p>
+    <p>[The first date.] It involved [place], [food] and a conversation that lasted far longer than planned.</p>
+    <p>[The proposal.] On [date], at [place], the question was asked — and the answer was a very quick “yes”.</p>
+    <p>[Today.] And now we begin our greatest chapter yet — together, forever.</p>
+  </div>
+  <div class="quote edit" contenteditable style="left:8cqw;right:8cqw;top:72cqw">“You are my favourite chapter.”</div>
+  <div class="fr" style="left:14cqw;right:14cqw;top:90cqw;height:42cqw;--r:2deg"><div class="ph" data-src="../photos/story-2.jpg"><span>PHOTO — the proposal<small>photos/story-2.jpg</small></span></div></div>
+</section>
+<section class="page pa">
+  <h2 class="edit" contenteditable style="left:7cqw;top:6cqw;width:60cqw">our playlist</h2>
+  <div class="player" style="left:8cqw;top:36cqw;width:46cqw">
+    <div class="ph" data-src="../photos/playlist.jpg" style="position:relative;width:100%;aspect-ratio:1"><span>PHOTO<small>photos/playlist.jpg</small></span></div>
+    <div class="t edit" contenteditable>[Our Song]</div><div class="a edit" contenteditable>[Artist]</div>
+    <div class="bar"></div><div class="times"><span>1:42</span><span>3:58</span></div>
+    <div class="ctrl"><span>⏮</span><span>⏸</span><span>⏭</span></div>
+  </div>
+  <ul class="tracks edit" contenteditable style="left:60cqw;top:40cqw;width:34cqw"><li>[Song 1]</li><li>[Song 2]</li><li>[Song 3]</li><li>[Song 4]</li><li>[Song 5]</li><li>[Song 6]</li></ul>
+  <div class="sticker" style="right:7cqw;top:9cqw">💜</div><div class="sticker" style="left:57cqw;top:28cqw">🌷</div>
+  <div class="note edit" contenteditable style="left:58cqw;top:100cqw;width:34cqw">same hearts,<br>same songs,<br>same us ♡</div>
+</section>
+<section class="page pb">
+  <h2 class="edit" contenteditable style="right:7cqw;top:6cqw;text-align:right;width:70cqw">little moments</h2>
+  <div class="fr" style="left:7cqw;top:30cqw;width:40cqw;height:46cqw;--r:-5deg"><div class="ph" data-src="../photos/moment-1.jpg"><span>moment-1<small>photos/moment-1.jpg</small></span></div><em class="edit" contenteditable>coffee dates</em></div>
+  <div class="fr" style="right:7cqw;top:50cqw;width:40cqw;height:46cqw;--r:4deg"><div class="ph" data-src="../photos/moment-2.jpg"><span>moment-2<small>photos/moment-2.jpg</small></span></div><em class="edit" contenteditable>late-night drives</em></div>
+  <div class="fr" style="left:12cqw;top:86cqw;width:40cqw;height:42cqw;--r:-2deg"><div class="ph" data-src="../photos/moment-3.jpg"><span>moment-3<small>photos/moment-3.jpg</small></span></div><em class="edit" contenteditable>our silly faces</em></div>
+  <div class="sticker" style="right:10cqw;top:110cqw">🎀</div><div class="sticker" style="left:44cqw;top:72cqw">🦋</div>
+</section>
+<section class="page pa">
+  <div class="search" style="left:7cqw;right:7cqw;top:8cqw">
+    <div class="logo">Lovely</div>
+    <div class="box">🔍 <span class="edit" contenteditable>best fiancé in the world</span></div>
+    <div class="tabs"><b>All</b><span>Images</span><span>Videos</span><span>News</span></div>
+  </div>
+  <div class="grid" style="left:7cqw;right:7cqw;top:42cqw;height:74cqw">
+    <div class="ph" data-src="../photos/search-1.jpg" style="grid-row:span 2"><span>search-1<small>photos/search-1.jpg</small></span></div><div class="ph" data-src="../photos/search-2.jpg"><span>search-2<small>photos/search-2.jpg</small></span></div><div class="ph" data-src="../photos/search-3.jpg"><span>search-3<small>photos/search-3.jpg</small></span></div><div class="ph" data-src="../photos/search-4.jpg"><span>search-4<small>photos/search-4.jpg</small></span></div><div class="ph" data-src="../photos/search-5.jpg"><span>search-5<small>photos/search-5.jpg</small></span></div>
+  </div>
+  <p class="txt edit" contenteditable style="left:7cqw;right:7cqw;top:121cqw">About 1 result (0.00 seconds) — <b data-fill="partner">[Partner]</b>. There is only one, and I'm marrying him.</p>
+</section>
+<section class="page pb">
+  <div class="fr" style="left:7cqw;top:7cqw;width:52cqw;height:70cqw;--r:0deg"><div class="ph" data-src="../photos/who-main.jpg"><span>MAIN PHOTO<small>photos/who-main.jpg</small></span></div></div>
+  <div class="fr" style="right:7cqw;top:7cqw;width:28cqw;height:33cqw;--r:3deg"><div class="ph" data-src="../photos/who-2.jpg"><span>who-2<small>photos/who-2.jpg</small></span></div></div>
+  <div class="fr" style="right:7cqw;top:44cqw;width:28cqw;height:33cqw;--r:-3deg"><div class="ph" data-src="../photos/who-3.jpg"><span>who-3<small>photos/who-3.jpg</small></span></div></div>
+  <h2 class="big edit" contenteditable style="right:7cqw;bottom:8cqw;text-align:right">Who's<br>that<br>guy?</h2>
+  <p class="txt edit" contenteditable style="left:7cqw;top:88cqw;width:36cqw">[Three words that describe him.] Kind. Funny. Mine. Write a few lines about what makes him, him.</p>
+  <div class="sticker" style="left:50cqw;top:80cqw">💜</div>
+</section>
+<section class="page alt">
+  <div class="lab big2 edit" contenteditable style="left:7cqw;top:7cqw">CHAAR KADAM</div>
+  <h2 class="edit" contenteditable style="left:7cqw;top:15cqw;width:86cqw">bas chaar kadam…</h2>
+  <div class="fr" style="left:12cqw;right:12cqw;top:42cqw;height:70cqw;--r:-2deg"><div class="ph" data-src="../photos/lyric.jpg"><span>PHOTO<small>photos/lyric.jpg</small></span></div></div>
+  <div class="sticker" style="right:8cqw;top:40cqw">🦋</div>
+  <p class="txt edit" contenteditable style="left:10cqw;right:10cqw;top:122cqw;text-align:center">[A favourite song lyric or a line just for him.]</p>
+</section>
+<section class="page pa">
+  <div class="filmstrip" style="left:7cqw;top:7cqw;width:34cqw;bottom:7cqw">
+    <div class="ph" data-src="../photos/film-1.jpg"><span>film-1<small>photos/film-1.jpg</small></span></div><div class="ph" data-src="../photos/film-2.jpg"><span>film-2<small>photos/film-2.jpg</small></span></div><div class="ph" data-src="../photos/film-3.jpg"><span>film-3<small>photos/film-3.jpg</small></span></div><div class="ph" data-src="../photos/film-4.jpg"><span>film-4<small>photos/film-4.jpg</small></span></div>
+  </div>
+  <div class="heart" style="right:10cqw;top:12cqw;width:38cqw"></div>
+  <div class="lab big2 edit" contenteditable style="right:7cqw;top:58cqw;text-align:right">TU MERI<br>DUNIYA</div>
+  <p class="txt edit" contenteditable style="left:47cqw;right:7cqw;top:82cqw">[A memory only the two of you share — the trip, the fight you laughed about, the night everything felt right.]</p>
+</section>
+<section class="page pb">
+  <div class="lab" style="left:12cqw;top:8cqw">Our journey</div>
+  <h2 class="edit" contenteditable style="left:10cqw;right:8cqw;top:13cqw">from hello to forever</h2>
+  <div class="timeline edit" contenteditable>
+    <div><b>[YEAR]</b><span>We met</span><small>[Where and how]</small></div>
+    <div><b>[YEAR]</b><span>First date</span><small>[What you did]</small></div>
+    <div><b>[YEAR]</b><span>First trip</span><small>[Where you went]</small></div>
+    <div><b>[YEAR]</b><span>The proposal</span><small>[The moment]</small></div>
+    <div><b data-fill="year">[YEAR]</b><span>Forever begins</span><small>Our wedding day</small></div>
+  </div>
+</section>
+<section class="page pa">
+  <div class="arch" style="left:14cqw;right:14cqw;top:8cqw;height:88cqw"><div class="ph" data-src="../photos/wedding.jpg"><span>WEDDING PHOTO<small>photos/wedding.jpg</small></span></div></div>
+  <h2 class="edit" contenteditable style="left:0;right:0;top:100cqw;text-align:center">Happy Wedding</h2>
+  <div class="lab" style="left:0;right:0;top:120cqw;text-align:center" data-fill="coupleCaps">NAME &amp; NAME</div>
+  <div class="lab" style="left:0;right:0;top:126cqw;text-align:center" data-fill="dateLong">DATE</div>
+</section>
+<section class="page letter">
+  <h2 class="edit" contenteditable style="left:16cqw;top:7cqw">A letter to you</h2>
+  <div class="body edit" contenteditable>My love,<br><br>[Write your letter here. What you felt the first time you saw him, what you love most, what you promise for the years ahead.]<br><br>Thank you for choosing me, every single day.<br><br>Forever yours,<br><span data-fill="you">[Your Name]</span> ♡</div>
+</section>
+<section class="page alt">
+  <h2 class="edit" contenteditable style="left:0;right:0;top:6cqw;text-align:center">photo dump</h2>
+  <div class="filmstrip booth" style="left:8cqw;top:26cqw;width:26cqw;bottom:8cqw;transform:rotate(-3deg)"><div class="ph" data-src="../photos/booth-1.jpg"><span>1<small>photos/booth-1.jpg</small></span></div><div class="ph" data-src="../photos/booth-2.jpg"><span>2<small>photos/booth-2.jpg</small></span></div><div class="ph" data-src="../photos/booth-3.jpg"><span>3<small>photos/booth-3.jpg</small></span></div><div class="ph" data-src="../photos/booth-4.jpg"><span>4<small>photos/booth-4.jpg</small></span></div></div><div class="filmstrip booth" style="left:37cqw;top:24cqw;width:26cqw;bottom:10cqw;transform:rotate(2deg)"><div class="ph" data-src="../photos/booth-5.jpg"><span>5<small>photos/booth-5.jpg</small></span></div><div class="ph" data-src="../photos/booth-6.jpg"><span>6<small>photos/booth-6.jpg</small></span></div><div class="ph" data-src="../photos/booth-7.jpg"><span>7<small>photos/booth-7.jpg</small></span></div><div class="ph" data-src="../photos/booth-8.jpg"><span>8<small>photos/booth-8.jpg</small></span></div></div><div class="filmstrip booth" style="left:66cqw;top:27cqw;width:26cqw;bottom:7cqw;transform:rotate(-1.5deg)"><div class="ph" data-src="../photos/booth-9.jpg"><span>9<small>photos/booth-9.jpg</small></span></div><div class="ph" data-src="../photos/booth-10.jpg"><span>10<small>photos/booth-10.jpg</small></span></div><div class="ph" data-src="../photos/booth-11.jpg"><span>11<small>photos/booth-11.jpg</small></span></div><div class="ph" data-src="../photos/booth-12.jpg"><span>12<small>photos/booth-12.jpg</small></span></div></div>
+</section>
+<section class="page back">
+  <div class="ph" data-src="../photos/back.jpg"><span>BACK COVER PHOTO<small>photos/back.jpg</small></span></div><div class="shade"></div>
+  <div class="card"><h2 class="edit" contenteditable>You're my home</h2><div class="t edit" contenteditable>The One &amp; Only</div><div class="a" data-fill="couple">Name &amp; Name</div><div class="bar"></div><div class="ctrl"><span>⏮</span><span>⏸</span><span>⏭</span></div></div>
+</section>
+</div></div>
+<nav><button id="prev" aria-label="Previous">‹</button><span id="count"></span><button id="next" aria-label="Next">›</button></nav>
+<script src="../config.js"></script>
+<script>const C = Object.assign({ you: "[Your Name]", partner: "[Partner Name]", day: "00", month: "Month", year: "2027" }, window.MAG_CONFIG || {});
+const fills = {
+  you: C.you, partner: C.partner, day: C.day, year: C.year,
+  monthYear: (C.month + " " + C.year).toUpperCase(),
+  couple: C.you + " & " + C.partner,
+  coupleCaps: (C.you + " & " + C.partner).toUpperCase(),
+  dateLong: C.day + " " + C.month + " " + C.year
+};
+document.querySelectorAll("[data-fill]").forEach(el => { if (fills[el.dataset.fill] != null) el.textContent = fills[el.dataset.fill]; });
+document.querySelectorAll(".ph[data-src]").forEach(el => {
+  const img = new Image();
+  img.onload = () => { el.style.backgroundImage = `url("${el.dataset.src}")`; el.classList.add("loaded"); };
+  img.src = el.dataset.src;
+});
+const pages = [...document.querySelectorAll(".page")];
+pages.forEach((p, i) => { if (i > 0 && i < pages.length - 1) { const n = document.createElement("div"); n.className = "pageno"; n.textContent = String(i + 1).padStart(2, "0"); p.appendChild(n); } });
+const book = document.getElementById("book");
+let views = [], v = 0;
+function buildViews() {
+  const single = window.innerWidth < 900 || window.innerHeight > window.innerWidth;
+  book.classList.toggle("single", single);
+  if (single) views = pages.map((_, i) => [i]);
+  else { views = [[0]]; for (let i = 1; i < pages.length - 1; i += 2) views.push(i + 1 < pages.length - 1 ? [i, i + 1] : [i]); views.push([pages.length - 1]); }
+}
+function render() {
+  pages.forEach(p => p.classList.remove("show", "left", "right"));
+  const cur = views[v];
+  cur.forEach((i, k) => { pages[i].classList.add("show"); if (cur.length === 2) pages[i].classList.add(k ? "right" : "left"); });
+  document.getElementById("count").textContent = cur.map(i => i + 1).join("–") + " / " + pages.length;
+  document.getElementById("prev").disabled = v === 0;
+  document.getElementById("next").disabled = v === views.length - 1;
+}
+function go(d) { const nv = Math.min(views.length - 1, Math.max(0, v + d)); if (nv !== v) { v = nv; render(); } }
+function relayout() { const first = views.length ? views[v][0] : 0; buildViews(); v = Math.max(0, views.findIndex(x => x.includes(first))); render(); }
+document.getElementById("prev").onclick = () => go(-1);
+document.getElementById("next").onclick = () => go(1);
+document.addEventListener("keydown", e => { if (document.activeElement.isContentEditable) return; if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); });
+let sx = null;
+document.addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+document.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); sx = null; });
+window.addEventListener("resize", relayout);
+relayout();
+</script>
+</body></html>

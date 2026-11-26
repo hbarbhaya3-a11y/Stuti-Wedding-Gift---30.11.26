@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forever — The Wedding Issue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Great+Vibes&family=Caveat:wght@400;700&family=Bebas+Neue&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=Inter:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   EDIT NAMES / DATES IN THE CONFIG BLOCK AT THE BOTTOM.
+   PHOTOS: drop files into /photos with the names shown on
+   each placeholder (e.g. photos/cover.jpg). They appear
+   automatically.
+   ========================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at 50% 30%,#3b2a2f,#140d10 75%);color:#222;overflow:hidden;display:flex;flex-direction:column}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;perspective:2200px;padding:44px 2vw 0}
+.book{display:flex;gap:0;filter:drop-shadow(0 25px 40px rgba(0,0,0,.55))}
+.page{--w:min(44vw, calc((100vh - 120px) / 1.414));width:var(--w);aspect-ratio:1/1.414;position:relative;overflow:hidden;container-type:inline-size;background:#fff;display:none}
+.page.show{display:block;animation:flipIn .55s ease}
+.page.show.left{transform-origin:right center}
+.page.show.right{transform-origin:left center}
+.page.left::after{content:"";position:absolute;inset:0 0 0 auto;width:8%;background:linear-gradient(to left,rgba(0,0,0,.22),transparent);pointer-events:none;z-index:50}
+.page.right::after{content:"";position:absolute;inset:0 auto 0 0;width:8%;background:linear-gradient(to right,rgba(0,0,0,.22),transparent);pointer-events:none;z-index:50}
+@keyframes flipIn{from{opacity:0;transform:rotateY(-25deg) scale(.97)}to{opacity:1;transform:none}}
+.single .page{--w:min(92vw, calc((100vh - 120px) / 1.414))}
+.single .page::after{display:none}
+nav{display:flex;align-items:center;justify-content:center;gap:16px;padding:14px;color:#f3dfe4;font-size:14px;letter-spacing:.08em}
+nav button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;width:44px;height:44px;font-size:20px;cursor:pointer}
+nav button:hover{background:rgba(255,255,255,.22)}
+nav button:disabled{opacity:.3;cursor:default}
+
+/* ---------- shared pieces ---------- */
+.ph{position:absolute;background:repeating-linear-gradient(45deg,#e9e1dc,#e9e1dc 10px,#f3ede9 10px,#f3ede9 20px);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:#8b7d77;font:600 2.4cqw/1.3 Inter,sans-serif;padding:3cqw;overflow:hidden}
+.ph.loaded{color:transparent}
+.ph.loaded span{display:none}
+.ph span small{display:block;font-weight:400;opacity:.8;margin-top:.6cqw}
+.polaroid{position:absolute;background:#fff;padding:2.2cqw 2.2cqw 7cqw;box-shadow:0 1cqw 2.5cqw rgba(0,0,0,.25)}
+.polaroid .ph{position:relative;width:100%;height:100%}
+.polaroid em{position:absolute;bottom:1.6cqw;left:0;right:0;text-align:center;font:400 3.6cqw Caveat,cursive;color:#333}
+.tape{position:absolute;width:16cqw;height:4.5cqw;background:rgba(255,236,190,.75);box-shadow:0 .3cqw .6cqw rgba(0,0,0,.1);z-index:5}
+.edit{outline:none}
+.abs{position:absolute}
+.sticker{position:absolute;font-size:7cqw;line-height:1;z-index:6;filter:drop-shadow(0 .4cqw .5cqw rgba(0,0,0,.2))}
+.filmstrip{position:absolute;background:#111;padding:2.5cqw 4.5cqw;display:flex;flex-direction:column;gap:2cqw}
+.filmstrip::before,.filmstrip::after{content:"";position:absolute;top:0;bottom:0;width:2.6cqw;background:repeating-linear-gradient(to bottom,transparent 0 1.6cqw,#f5f5f5 1.6cqw 3.2cqw,transparent 3.2cqw 4.4cqw)}
+.filmstrip::before{left:1cqw}.filmstrip::after{right:1cqw}
+.filmstrip .ph{position:relative;flex:1}
+
+/* ---------- P1: COVER (coquette fashion masthead) ---------- */
+.cover{background:#f7c6d3}
+.cover .ph{inset:0;font-size:3cqw}
+.cover .mast{position:absolute;top:3cqw;left:0;right:0;text-align:center;font:900 19cqw/0.9 "Bodoni Moda",serif;letter-spacing:-.3cqw;white-space:nowrap;color:#fff;mix-blend-mode:normal;text-shadow:0 .5cqw 2cqw rgba(120,20,60,.35);z-index:3}
+.cover .issue{position:absolute;top:29cqw;right:5cqw;font:700 3cqw Inter;letter-spacing:.4em;color:#fff;z-index:3}
+.cover .lines{position:absolute;left:5cqw;top:44cqw;width:36cqw;color:#fff;z-index:3;text-shadow:0 .3cqw 1cqw rgba(0,0,0,.4)}
+.cover .lines b{display:block;font:900 6cqw/1 "Bebas Neue";letter-spacing:.05em}
+.cover .lines p{font:400 3cqw/1.3 "Playfair Display";margin:.5cqw 0 4cqw}
+.cover .names{position:absolute;bottom:13cqw;left:0;right:0;text-align:center;color:#fff;font:400 11cqw/1.05 "Great Vibes";z-index:3;padding:0 6cqw;text-shadow:0 .5cqw 2cqw rgba(0,0,0,.45)}
+.cover .ed{position:absolute;right:5cqw;top:62cqw;text-align:right;color:#fff;z-index:3;text-shadow:0 .3cqw 1cqw rgba(0,0,0,.4)}
+.cover .ed b{font:900 14cqw/0.9 "Bodoni Moda";display:block}
+.cover .ed span{font:700 2.8cqw Inter;letter-spacing:.3em}
+.barcode{position:absolute;bottom:4cqw;right:5cqw;width:16cqw;height:8cqw;background:#fff;padding:1cqw;z-index:3}
+.barcode i{display:block;height:100%;background:repeating-linear-gradient(90deg,#111 0 .4cqw,transparent .4cqw .7cqw,#111 .7cqw .9cqw,transparent .9cqw 1.6cqw,#111 1.6cqw 2.3cqw,transparent 2.3cqw 2.6cqw)}
+.cover .bottom{position:absolute;bottom:5cqw;left:5cqw;font:600 2.6cqw Inter;letter-spacing:.25em;color:#fff;z-index:3}
+
+/* ---------- P2-3: VINTAGE NEWSPAPER ---------- */
+.news{background:#f1e8d6;color:#1d1a16;font-family:"Old Standard TT",serif;padding:4% 5% 6%}
+.news.show{display:flex;flex-direction:column}
+.news .top{display:flex;justify-content:space-between;font:400 2.2cqw "Old Standard TT";border-bottom:.3cqw solid #1d1a16;padding-bottom:1cqw;text-transform:uppercase;letter-spacing:.1em}
+.news .flag{font:400 10.5cqw/1.1 UnifrakturMaguntia;text-align:center;margin:1.5cqw 0 .5cqw}
+.news .rule{border-top:.3cqw solid #1d1a16;border-bottom:.15cqw solid #1d1a16;height:1.2cqw;margin-bottom:2.5cqw}
+.news h2{font:700 10cqw/0.95 "Playfair Display";text-transform:uppercase;letter-spacing:-.2cqw;text-align:center}
+.news h3{font:italic 400 4cqw "Old Standard TT";text-align:center;margin:1.5cqw 0 3cqw}
+.news .cols{columns:2;column-gap:4cqw;font-size:3cqw;line-height:1.5;text-align:justify}
+.news .cols p+p{margin-top:1.5cqw}
+.news .cols p:first-child::first-letter{font:700 8cqw/0.8 "Playfair Display";float:left;margin:.6cqw 1cqw 0 0}
+.news .ph{filter:grayscale(1) sepia(.25)}
+.news .quote{border-top:.3cqw solid;border-bottom:.3cqw solid;padding:2cqw 0;margin:3cqw 0;font:italic 700 4.4cqw/1.2 "Playfair Display";text-align:center}
+.news .cap{font:italic 2.2cqw "Old Standard TT";text-align:center;margin-top:1cqw}
+
+/* ---------- P4-5: COQUETTE PINK SCRAPBOOK ---------- */
+.coq{background:#ffe3ea;background-image:linear-gradient(45deg,#ffd0dc 25%,transparent 25%,transparent 75%,#ffd0dc 75%),linear-gradient(45deg,#ffd0dc 25%,transparent 25%,transparent 75%,#ffd0dc 75%);background-size:10cqw 10cqw;background-position:0 0,5cqw 5cqw}
+.coq .card{position:absolute;background:#fff;border-radius:3cqw;box-shadow:0 1cqw 3cqw rgba(200,60,110,.25)}
+.coq h2{font:400 13cqw/0.9 Pacifico;color:#d6336c;position:absolute}
+.player{position:absolute;background:#d6336c;color:#fff;border-radius:3cqw;padding:3.5cqw;box-shadow:0 1cqw 3cqw rgba(160,30,80,.35)}
+.player .art{position:relative;width:100%;aspect-ratio:1;border-radius:2cqw}
+.player .t{font:700 4cqw Inter;margin-top:2.5cqw}
+.player .a{font:400 2.8cqw Inter;opacity:.85}
+.player .bar{height:.8cqw;background:rgba(255,255,255,.35);border-radius:1cqw;margin:2.5cqw 0 1cqw;position:relative}
+.player .bar::before{content:"";position:absolute;inset:0 45% 0 0;background:#fff;border-radius:1cqw}
+.player .times{display:flex;justify-content:space-between;font-size:2.2cqw;opacity:.85}
+.player .ctrl{display:flex;justify-content:center;gap:6cqw;font-size:5cqw;margin-top:1.5cqw}
+.tracks{position:absolute;font:400 3.4cqw/1.55 Caveat;color:#7a1f42}
+.tracks li{list-style:none}
+.tracks li::before{content:"♥ ";color:#d6336c}
+.coq .note{position:absolute;background:#fff8c9;padding:3cqw;font:400 3.6cqw/1.25 Caveat;color:#5a3a2a;box-shadow:0 .8cqw 1.5cqw rgba(0,0,0,.15);transform:rotate(-3deg)}
+
+/* ---------- P6-7: SEARCH + WHO'S THAT (editorial white) ---------- */
+.edi{background:#fff}
+.search{position:absolute;left:6cqw;right:6cqw;top:6cqw}
+.search .logo{font:700 9cqw "Playfair Display";text-align:center;letter-spacing:-.3cqw}
+.search .logo span:nth-child(1){color:#4285f4}.search .logo span:nth-child(2){color:#ea4335}.search .logo span:nth-child(3){color:#fbbc05}.search .logo span:nth-child(4){color:#4285f4}.search .logo span:nth-child(5){color:#34a853}.search .logo span:nth-child(6){color:#ea4335}
+.search .box{border:.3cqw solid #ddd;border-radius:10cqw;padding:2.4cqw 4cqw;font:400 3.2cqw Inter;color:#333;margin-top:2cqw;box-shadow:0 .5cqw 1.5cqw rgba(0,0,0,.08);display:flex;gap:2cqw;align-items:center}
+.search .tabs{display:flex;gap:4cqw;font:400 2.4cqw Inter;color:#666;margin:2.5cqw 0 0 3cqw}
+.search .tabs b{color:#1a73e8;border-bottom:.4cqw solid #1a73e8;padding-bottom:.6cqw}
+.grid{position:absolute;display:grid;gap:1.6cqw}
+.grid .ph{position:relative}
+.who{background:#f6f3ee}
+.who h2{position:absolute;right:5cqw;bottom:6cqw;font:400 17cqw/0.82 "Bodoni Moda";text-align:right;color:#111}
+.who h2 i{font-style:italic}
+.who .tag{position:absolute;font:400 3.6cqw Caveat;background:#fff;padding:1cqw 2.5cqw;box-shadow:0 .5cqw 1cqw rgba(0,0,0,.12)}
+
+/* ---------- P8-9: RED & BLACK ROMANCE ---------- */
+.rom{background:#7d0c1c;color:#fff}
+.rom.dark{background:#111}
+.rom h2{position:absolute;font:400 12cqw/0.95 Pacifico;color:#fff}
+.rom .hindi{position:absolute;font:700 8cqw/1 "Bebas Neue";letter-spacing:.06em}
+.stamp{position:absolute;background:#fff;padding:2.6cqw;outline:1.6cqw dotted #fff;outline-offset:-.4cqw;box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.35)}
+.stamp .ph{position:relative;width:100%;height:100%}
+.rom p.small{position:absolute;font:400 2.6cqw/1.5 "Playfair Display";opacity:.9}
+.heart{position:absolute;width:30cqw;aspect-ratio:1;background:#e03150;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.3 2.4 4 6.4 4c2.3 0 3.9 1.3 5.6 3.3C13.7 5.3 15.3 4 17.6 4c4 0 6.1 4.3 4.4 7.7C19.5 16.4 12 21 12 21z"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.3 2.4 4 6.4 4c2.3 0 3.9 1.3 5.6 3.3C13.7 5.3 15.3 4 17.6 4c4 0 6.1 4.3 4.4 7.7C19.5 16.4 12 21 12 21z"/></svg>') center/contain no-repeat;display:flex;align-items:center;justify-content:center}
+
+/* ---------- P10-11: MINIMAL BEIGE WEDDING ---------- */
+.min{background:#f4ede3;color:#4a3f35}
+.min h2{position:absolute;font:400 11cqw/1 "Great Vibes";color:#8a6e52}
+.min .caps{position:absolute;font:600 2.4cqw Inter;letter-spacing:.45em;text-transform:uppercase;color:#8a6e52}
+.min .serif{position:absolute;font:400 3.2cqw/1.6 "Playfair Display";color:#4a3f35}
+.timeline{position:absolute;left:12cqw;right:8cqw;top:46cqw;border-left:.3cqw solid #c7b29a;padding-left:6cqw}
+.timeline div{position:relative;margin-bottom:5.5cqw}
+.timeline div::before{content:"";position:absolute;left:-7.7cqw;top:.8cqw;width:3cqw;height:3cqw;border-radius:50%;background:#f4ede3;border:.4cqw solid #8a6e52}
+.timeline b{font:700 2.4cqw Inter;letter-spacing:.3em;color:#8a6e52;display:block}
+.timeline span{font:400 4.6cqw "Playfair Display"}
+.timeline small{display:block;font:400 2.8cqw/1.4 "Playfair Display";color:#7b6d60;margin-top:.5cqw}
+.arch{position:absolute;border-radius:50cqw 50cqw 0 0;overflow:hidden}
+.arch .ph{inset:0}
+
+/* ---------- P12: LETTER + PHOTOBOOTH ---------- */
+.letter{background:#fffdf8;background-image:repeating-linear-gradient(transparent 0 6.4cqw,#e3e8f4 6.4cqw 6.6cqw);color:#2b2b55}
+.letter::before{content:"";position:absolute;left:12cqw;top:0;bottom:0;width:.3cqw;background:#f0a5b5}
+.letter .body{position:absolute;left:16cqw;right:7cqw;top:20cqw;font:400 4.4cqw/6.6cqw Caveat}
+.letter h2{position:absolute;left:16cqw;top:7cqw;font:400 9cqw Great Vibes;color:#b8325b}
+.booth{background:#1a1a1a}
+/* ---------- BACK COVER ---------- */
+.back{background:#111;color:#fff}
+.back .ph{inset:0}
+.back .shade{position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.85));z-index:2}
+.back .card{position:absolute;left:8cqw;right:8cqw;bottom:8cqw;z-index:3;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:.2cqw solid rgba(255,255,255,.25);border-radius:4cqw;padding:5cqw}
+.back h2{font:400 11cqw/1 "Great Vibes";text-align:center}
+.back .t{font:700 4cqw Inter;text-align:center;margin-top:2cqw}
+.back .a{font:400 2.8cqw Inter;text-align:center;opacity:.8}
+.back .bar{height:.7cqw;background:rgba(255,255,255,.3);margin:3cqw 0 1cqw;border-radius:1cqw;position:relative}
+.back .bar::before{content:"";position:absolute;inset:0 30% 0 0;background:#fff;border-radius:1cqw}
+.back .ctrl{display:flex;justify-content:center;gap:8cqw;font-size:6cqw;margin-top:2cqw}
+.pageno{position:absolute;bottom:2.5cqw;font:600 2cqw Inter;letter-spacing:.2em;opacity:.55;z-index:20}
+.left .pageno{left:4cqw}.right .pageno{right:4cqw}
+</style>
+</head>
+<body>
+<a href="../" style="position:fixed;top:10px;left:12px;z-index:100;color:#f3dfe4;font:600 13px Inter;text-decoration:none;opacity:.75;background:rgba(255,255,255,.08);padding:6px 12px;border-radius:999px">← all styles</a>
+<div class="stage"><div class="book" id="book">
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<section class="page cover">
+  <div class="ph" data-src="../photos/cover.jpg"><span>COVER PHOTO<small>photos/cover.jpg — a portrait of you two</small></span></div>
+  <div class="mast edit" contenteditable>FOREVER</div>
+  <div class="issue">THE WEDDING ISSUE</div>
+  <div class="lines">
+    <b class="edit" contenteditable>Two Hearts,</b><p class="edit" contenteditable>one beautiful story</p>
+    <b class="edit" contenteditable>Exclusive:</b><p class="edit" contenteditable>how it all began</p>
+    <b class="edit" contenteditable>Our Playlist</b><p class="edit" contenteditable>songs that are “us”</p>
+  </div>
+  <div class="ed"><b data-fill="day">00</b><span data-fill="monthYear">MONTH 2027</span></div>
+  <div class="names" data-fill="couple">Name &amp; Name</div>
+  <div class="bottom">A SPECIAL EDITION · FOR MY FOREVER</div>
+  <div class="barcode"><i></i></div>
+</section>
+
+<!-- ============ PAGE 2 — NEWSPAPER (left) ============ -->
+<section class="page news">
+  <div class="top"><span>Vol. I · No. 1</span><span data-fill="dateLong">Wedding Day</span><span>Priceless</span></div>
+  <div class="flag">The Forever Chronicle</div>
+  <div class="rule"></div>
+  <h2 class="edit" contenteditable>Extra! Extra!<br>They Said Yes!</h2>
+  <h3 class="edit" contenteditable>A love story years in the making</h3>
+  <div class="ph" data-src="../photos/story-1.jpg" style="position:relative;flex:1"><span>PHOTO<small>photos/story-1.jpg — your first photo together</small></span></div>
+  <div class="cap edit" contenteditable>Where it all started — [place, year]</div>
+</section>
+
+<!-- ============ PAGE 3 — NEWSPAPER (right) ============ -->
+<section class="page news">
+  <div class="top"><span>Love Section</span><span>Page 3</span><span>Special Report</span></div>
+  <div class="cols edit" contenteditable style="margin-top:3cqw">
+    <p>[How you met.] It began on an ordinary day in [city], when [Partner] walked in and everything quietly changed. Write the real story here — the first conversation, the first impression, the moment you knew.</p>
+    <p>[The first date.] Sources close to the couple confirm the first date involved [place], [food] and a conversation that lasted far longer than planned.</p>
+    <p>[The proposal.] On [date], at [place], the question was asked. Witnesses report happy tears and a very quick “yes”.</p>
+    <p>[Today.] And now the two begin their greatest chapter yet — together, forever.</p>
+  </div>
+  <div class="quote edit" contenteditable>“You are my favourite headline.”</div>
+  <div class="ph" data-src="../photos/story-2.jpg" style="position:relative;flex:1"><span>PHOTO<small>photos/story-2.jpg — the proposal</small></span></div>
+</section>
+
+<!-- ============ PAGE 4 — COQUETTE: PLAYLIST (left) ============ -->
+<section class="page coq">
+  <h2 style="left:6cqw;top:5cqw" class="edit" contenteditable>our<br>playlist</h2>
+  <div class="player" style="left:8cqw;top:40cqw;width:46cqw">
+    <div class="ph art" data-src="../photos/playlist.jpg"><span>PHOTO<small>photos/playlist.jpg</small></span></div>
+    <div class="t edit" contenteditable>[Our Song]</div>
+    <div class="a edit" contenteditable>[Artist]</div>
+    <div class="bar"></div><div class="times"><span>1:42</span><span>3:58</span></div>
+    <div class="ctrl"><span>⏮</span><span>⏸</span><span>⏭</span></div>
+  </div>
+  <ul class="tracks edit" contenteditable style="left:60cqw;top:44cqw;width:36cqw">
+    <li>[Song 1]</li><li>[Song 2]</li><li>[Song 3]</li><li>[Song 4]</li><li>[Song 5]</li><li>[Song 6]</li>
+  </ul>
+  <div class="sticker" style="right:6cqw;top:8cqw">🎀</div>
+  <div class="sticker" style="left:58cqw;top:30cqw">🍒</div>
+  <div class="note edit" contenteditable style="left:58cqw;bottom:10cqw;width:34cqw">same hearts,<br>same songs,<br>same us ♡</div>
+</section>
+
+<!-- ============ PAGE 5 — COQUETTE: LITTLE MOMENTS (right) ============ -->
+<section class="page coq">
+  <h2 style="right:6cqw;top:5cqw;text-align:right" class="edit" contenteditable>little<br>moments</h2>
+  <div class="polaroid" style="left:6cqw;top:12cqw;width:42cqw;height:50cqw;transform:rotate(-5deg)"><div class="ph" data-src="../photos/moment-1.jpg"><span>photos/moment-1.jpg</span></div><em class="edit" contenteditable>coffee dates ☕</em></div>
+  <div class="tape" style="left:18cqw;top:10cqw;transform:rotate(-8deg)"></div>
+  <div class="polaroid" style="right:6cqw;top:44cqw;width:42cqw;height:50cqw;transform:rotate(4deg)"><div class="ph" data-src="../photos/moment-2.jpg"><span>photos/moment-2.jpg</span></div><em class="edit" contenteditable>late-night drives</em></div>
+  <div class="tape" style="right:16cqw;top:42cqw;transform:rotate(6deg)"></div>
+  <div class="polaroid" style="left:8cqw;top:75cqw;width:42cqw;height:50cqw;transform:rotate(-2deg)"><div class="ph" data-src="../photos/moment-3.jpg"><span>photos/moment-3.jpg</span></div><em class="edit" contenteditable>our silly faces</em></div>
+  <div class="sticker" style="right:8cqw;bottom:12cqw">💗</div>
+  <div class="sticker" style="left:44cqw;top:60cqw">🌷</div>
+</section>
+
+<!-- ============ PAGE 6 — SEARCH PAGE (left) ============ -->
+<section class="page edi">
+  <div class="search">
+    <div class="logo"><span>L</span><span>o</span><span>v</span><span>e</span><span>l</span><span>y</span></div>
+    <div class="box">🔍 <span class="edit" contenteditable>best fiancé in the world</span></div>
+    <div class="tabs"><b>All</b><span>Images</span><span>Videos</span><span>News</span></div>
+  </div>
+  <div class="grid" style="left:6cqw;right:6cqw;top:40cqw;bottom:20cqw;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr">
+    <div class="ph" data-src="../photos/search-1.jpg" style="grid-row:span 2"><span>search-1.jpg</span></div>
+    <div class="ph" data-src="../photos/search-2.jpg"><span>search-2.jpg</span></div>
+    <div class="ph" data-src="../photos/search-3.jpg"><span>search-3.jpg</span></div>
+    <div class="ph" data-src="../photos/search-4.jpg"><span>search-4.jpg</span></div>
+    <div class="ph" data-src="../photos/search-5.jpg"><span>search-5.jpg</span></div>
+  </div>
+  <div class="abs edit" contenteditable style="left:6cqw;right:6cqw;bottom:7cqw;font:400 2.8cqw/1.5 Inter;color:#555">About 1 result (0.00 seconds) — <b data-fill="partner">[Partner]</b>. There is only one, and I'm marrying them.</div>
+</section>
+
+<!-- ============ PAGE 7 — WHO'S THAT (right) ============ -->
+<section class="page who">
+  <div class="ph" data-src="../photos/who-main.jpg" style="left:6cqw;top:6cqw;width:52cqw;height:70cqw"><span>MAIN PHOTO<small>photos/who-main.jpg</small></span></div>
+  <div class="ph" data-src="../photos/who-2.jpg" style="right:6cqw;top:6cqw;width:30cqw;height:34cqw"><span>who-2.jpg</span></div>
+  <div class="ph" data-src="../photos/who-3.jpg" style="right:6cqw;top:43cqw;width:30cqw;height:34cqw"><span>who-3.jpg</span></div>
+  <div class="tag edit" contenteditable style="left:10cqw;top:72cqw;transform:rotate(-4deg)">with love,</div>
+  <h2 class="edit" contenteditable>Who's<br><i>that</i><br>guy?</h2>
+  <div class="abs edit" contenteditable style="left:6cqw;top:84cqw;width:38cqw;font:400 2.8cqw/1.5 'Playfair Display'">[Three words that describe them.] Kind. Funny. Mine. Write a few lines about what makes them, them.</div>
+</section>
+
+<!-- ============ PAGE 8 — RED ROMANCE (left) ============ -->
+<section class="page rom">
+  <div class="hindi edit" contenteditable style="left:6cqw;top:6cqw">CHAAR KADAM</div>
+  <h2 style="left:6cqw;top:14cqw" class="edit" contenteditable>bas chaar<br>kadam…</h2>
+  <div class="stamp" style="left:10cqw;top:48cqw;width:56cqw;height:66cqw;transform:rotate(-3deg)"><div class="ph" data-src="../photos/lyric.jpg"><span>photos/lyric.jpg</span></div></div>
+  <div class="sticker" style="right:8cqw;top:46cqw">🌹</div>
+  <p class="small edit" contenteditable style="left:8cqw;right:8cqw;bottom:9cqw">[A favourite song lyric or a line just for them.]</p>
+</section>
+
+<!-- ============ PAGE 9 — BLACK ROMANCE + FILMSTRIP (right) ============ -->
+<section class="page rom dark">
+  <div class="filmstrip" style="left:6cqw;top:6cqw;width:34cqw;bottom:6cqw">
+    <div class="ph" data-src="../photos/film-1.jpg"><span>film-1</span></div>
+    <div class="ph" data-src="../photos/film-2.jpg"><span>film-2</span></div>
+    <div class="ph" data-src="../photos/film-3.jpg"><span>film-3</span></div>
+    <div class="ph" data-src="../photos/film-4.jpg"><span>film-4</span></div>
+  </div>
+  <div class="heart" style="right:10cqw;top:10cqw;width:40cqw"></div>
+  <div class="hindi edit" contenteditable style="right:6cqw;top:56cqw;text-align:right;color:#e03150">TU MERI<br>DUNIYA</div>
+  <p class="small edit" contenteditable style="left:46cqw;right:6cqw;top:78cqw">[A memory only the two of you share — the trip, the fight you laughed about, the night everything felt right.]</p>
+</section>
+
+<!-- ============ PAGE 10 — MINIMAL: OUR JOURNEY (left) ============ -->
+<section class="page min">
+  <div class="caps" style="left:12cqw;top:9cqw">Our Journey</div>
+  <h2 style="left:10cqw;top:13cqw" class="edit" contenteditable>from hello to forever</h2>
+  <div class="timeline edit" contenteditable>
+    <div><b>[YEAR]</b><span>We met</span><small>[Where and how]</small></div>
+    <div><b>[YEAR]</b><span>First date</span><small>[What you did]</small></div>
+    <div><b>[YEAR]</b><span>First trip</span><small>[Where you went]</small></div>
+    <div><b>[YEAR]</b><span>The proposal</span><small>[The moment]</small></div>
+    <div><b data-fill="year">[YEAR]</b><span>Forever begins</span><small>Our wedding day</small></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 11 — MINIMAL: HAPPY WEDDING (right) ============ -->
+<section class="page min">
+  <div class="arch" style="left:14cqw;right:14cqw;top:8cqw;height:88cqw"><div class="ph" data-src="../photos/wedding.jpg"><span>WEDDING PHOTO<small>photos/wedding.jpg</small></span></div></div>
+  <h2 style="left:0;right:0;top:100cqw;text-align:center" class="edit" contenteditable>Happy Wedding</h2>
+  <div class="caps" style="left:0;right:0;top:118cqw;text-align:center" data-fill="coupleCaps">NAME &amp; NAME</div>
+  <div class="caps" style="left:0;right:0;top:123cqw;text-align:center;letter-spacing:.3em" data-fill="dateLong">DATE</div>
+</section>
+
+<!-- ============ PAGE 12 — LOVE LETTER (left) ============ -->
+<section class="page letter">
+  <h2 class="edit" contenteditable>A letter to you</h2>
+  <div class="body edit" contenteditable>
+    My love,<br><br>
+    [Write your letter here. What you felt the first time you saw them, what you love most, what you promise for the years ahead.]<br><br>
+    Thank you for choosing me, every single day.<br><br>
+    Forever yours,<br><span data-fill="you">[Your Name]</span> ♡
+  </div>
+</section>
+
+<!-- ============ PAGE 13 — PHOTOBOOTH (right) ============ -->
+<section class="page booth">
+  <div class="abs edit" contenteditable style="left:0;right:0;top:6cqw;text-align:center;font:400 10cqw Pacifico;color:#fff">photo dump</div>
+  <div class="filmstrip" style="left:8cqw;top:24cqw;width:26cqw;bottom:8cqw;background:#fff;transform:rotate(-3deg)">
+    <div class="ph" data-src="../photos/booth-1.jpg"><span>1</span></div><div class="ph" data-src="../photos/booth-2.jpg"><span>2</span></div><div class="ph" data-src="../photos/booth-3.jpg"><span>3</span></div><div class="ph" data-src="../photos/booth-4.jpg"><span>4</span></div>
+  </div>
+  <div class="filmstrip" style="left:37cqw;top:22cqw;width:26cqw;bottom:10cqw;background:#fff;transform:rotate(2deg)">
+    <div class="ph" data-src="../photos/booth-5.jpg"><span>5</span></div><div class="ph" data-src="../photos/booth-6.jpg"><span>6</span></div><div class="ph" data-src="../photos/booth-7.jpg"><span>7</span></div><div class="ph" data-src="../photos/booth-8.jpg"><span>8</span></div>
+  </div>
+  <div class="filmstrip" style="left:66cqw;top:25cqw;width:26cqw;bottom:7cqw;background:#fff;transform:rotate(-1.5deg)">
+    <div class="ph" data-src="../photos/booth-9.jpg"><span>9</span></div><div class="ph" data-src="../photos/booth-10.jpg"><span>10</span></div><div class="ph" data-src="../photos/booth-11.jpg"><span>11</span></div><div class="ph" data-src="../photos/booth-12.jpg"><span>12</span></div>
+  </div>
+</section>
+
+<!-- ============ BACK COVER ============ -->
+<section class="page back">
+  <div class="ph" data-src="../photos/back.jpg"><span>BACK COVER PHOTO<small>photos/back.jpg</small></span></div>
+  <div class="shade"></div>
+  <div class="card">
+    <h2 class="edit" contenteditable>You're my home</h2>
+    <div class="t edit" contenteditable>The One &amp; Only</div>
+    <div class="a" data-fill="couple">Name &amp; Name</div>
+    <div class="bar"></div>
+    <div class="ctrl"><span>⏮</span><span>⏸</span><span>⏭</span></div>
+  </div>
+</section>
+
+</div></div>
+<nav><button id="prev" aria-label="Previous">‹</button><span id="count"></span><button id="next" aria-label="Next">›</button></nav>
+
+<script src="../config.js"></script>
+<script>
+/* ================== EDIT THESE ================== */
+const CONFIG = Object.assign({ you: "[Your Name]", partner: "[Partner Name]", day: "00", month: "Month", year: "2027" }, window.MAG_CONFIG || {});
+/* ================================================ */
+const fills = {
+  you: CONFIG.you, partner: CONFIG.partner, day: CONFIG.day, year: CONFIG.year,
+  monthYear: (CONFIG.month + " " + CONFIG.year).toUpperCase(),
+  couple: CONFIG.you + " & " + CONFIG.partner,
+  coupleCaps: (CONFIG.you + " & " + CONFIG.partner).toUpperCase(),
+  dateLong: CONFIG.day + " " + CONFIG.month + " " + CONFIG.year
+};
+document.querySelectorAll("[data-fill]").forEach(el => { el.textContent = fills[el.dataset.fill] ?? el.textContent; });
+
+// load photos if they exist, otherwise keep placeholder
+document.querySelectorAll(".ph[data-src]").forEach(el => {
+  const img = new Image();
+  img.onload = () => { el.style.backgroundImage = `url("${el.dataset.src}")`; el.classList.add("loaded"); };
+  img.src = el.dataset.src;
+});
+
+// page numbers
+const pages = [...document.querySelectorAll(".page")];
+pages.forEach((p, i) => { if (i > 0 && i < pages.length - 1) { const n = document.createElement("div"); n.className = "pageno"; n.textContent = String(i + 1).padStart(2, "0"); p.appendChild(n); } });
+
+// views: single page on narrow screens; spreads on wide screens (cover & back alone)
+const book = document.getElementById("book");
+let views = [], v = 0;
+function buildViews() {
+  const single = window.innerWidth < 900 || window.innerHeight > window.innerWidth;
+  book.classList.toggle("single", single);
+  if (single) views = pages.map((_, i) => [i]);
+  else { views = [[0]]; for (let i = 1; i < pages.length - 1; i += 2) views.push(i + 1 < pages.length - 1 ? [i, i + 1] : [i]); views.push([pages.length - 1]); }
+}
+function render() {
+  pages.forEach(p => p.classList.remove("show", "left", "right"));
+  const cur = views[v];
+  cur.forEach((i, k) => { pages[i].classList.add("show"); if (cur.length === 2) pages[i].classList.add(k ? "right" : "left"); });
+  document.getElementById("count").textContent = cur.map(i => i + 1).join("–") + " / " + pages.length;
+  document.getElementById("prev").disabled = v === 0;
+  document.getElementById("next").disabled = v === views.length - 1;
+}
+function go(d) { const nv = Math.min(views.length - 1, Math.max(0, v + d)); if (nv !== v) { v = nv; render(); } }
+function relayout() { const first = views.length ? views[v][0] : 0; buildViews(); v = Math.max(0, views.findIndex(x => x.includes(first))); render(); }
+document.getElementById("prev").onclick = () => go(-1);
+document.getElementById("next").onclick = () => go(1);
+document.addEventListener("keydown", e => { if (document.activeElement.isContentEditable) return; if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); });
+let sx = null;
+document.addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
+document.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); sx = null; });
+window.addEventListener("resize", relayout);
+relayout();
+</script>
+</body>
+</html>
